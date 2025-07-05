@@ -18,10 +18,33 @@ export default function ContactPage() {
     submitted: false,
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real application, you would handle form submission here
-    setFormState({ ...formState, submitted: true })
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrbkvqan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          message: formState.message,
+          formType: "Contact Form",
+        }),
+      })
+
+      if (response.ok) {
+        setFormState({ ...formState, submitted: true })
+      } else {
+        alert("Error sending message. Please try again.")
+      }
+    } catch (error) {
+      alert("Error sending message. Please try again.")
+    }
   }
 
   return (

@@ -19,16 +19,36 @@ export default function Footer() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would handle the form submission and send to abdelfattahbentamdia@gmail.com
-    console.log("Registration form submitted for abdelfattahbentamdia@gmail.com:", formData)
-    setSubmitted(true)
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ fullName: "", phoneNumber: "" })
-      setSubmitted(false)
-    }, 3000)
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrbkvqan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          phoneNumber: formData.phoneNumber,
+          formType: "Free Consultation Registration",
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormData({ fullName: "", phoneNumber: "" })
+          setSubmitted(false)
+        }, 3000)
+      } else {
+        alert("Error submitting registration. Please try again.")
+      }
+    } catch (error) {
+      alert("Error submitting registration. Please try again.")
+    }
   }
 
   return (

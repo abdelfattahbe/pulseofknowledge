@@ -12,7 +12,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from "@/components/ui/checkbox"
-import { submitScholarshipApplication } from "./actions"
 import { useLanguage } from "@/contexts/language-context"
 import { GraduationCap, Award, Send, CheckCircle } from "lucide-react"
 
@@ -85,8 +84,26 @@ export default function ScholarshipApplicationPage() {
     setIsSubmitting(true)
 
     try {
-      const result = await submitScholarshipApplication(formData)
-      if (result.success) {
+      const formData = new FormData()
+
+      // Add all form fields to FormData
+      Object.entries(formData).forEach(([key, value]) => {
+        if (typeof value === "boolean") {
+          formData.append(key, value.toString())
+        } else {
+          formData.append(key, value)
+        }
+      })
+
+      const response = await fetch("https://formspree.io/f/xrbkvqan", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
         setIsSubmitted(true)
       } else {
         alert("Error submitting application. Please try again.")
