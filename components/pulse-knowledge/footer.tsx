@@ -32,11 +32,14 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200" dir={dir}>
+    <footer className="bg-gray-50 border-t border-gray-200">
       {/* Scholarship Banner */}
       <div className="bg-[#D4AF37]/10 py-6">
-        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
-          <div className="text-center md:text-start mb-4 md:mb-0">
+        <div
+          className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between"
+          dir={dir}
+        >
+          <div className="text-center md:text-left mb-4 md:mb-0">
             <h3 className="text-lg font-medium text-[#D4AF37]">{t("footer.scholarships")}</h3>
           </div>
           <Link href="/scholarship-application">
@@ -66,7 +69,7 @@ export default function Footer() {
               >
                 {t("footer.applyNow")}
                 <motion.span
-                  className="inline-block ms-2"
+                  className="inline-block ml-2"
                   animate={{ x: [0, 5, 0] }}
                   transition={{
                     duration: 1.5,
@@ -85,7 +88,7 @@ export default function Footer() {
       {/* Registration Form */}
       <div className="py-12 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-md mx-auto text-center">
+          <div className="max-w-md mx-auto text-center" dir={dir}>
             <h3 className="text-2xl font-serif text-[#D4AF37] mb-6">{t("footer.freeConsultation")}</h3>
 
             {submitted ? (
@@ -108,7 +111,7 @@ export default function Footer() {
                   />
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <span className="text-gray-500">+212</span>
                   </div>
                   <Input
@@ -117,7 +120,7 @@ export default function Footer() {
                     value={formData.phoneNumber}
                     onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
                     required
-                    className="bg-white border-gray-300 ps-14"
+                    className="bg-white border-gray-300 pl-14"
                   />
                 </div>
                 <motion.button
@@ -142,15 +145,12 @@ export default function Footer() {
 
       {/* Main Footer */}
       <div className="py-10 bg-gray-900 text-white">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6" dir={dir}>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-1">
               <PulseLogo className="mb-4" />
               <p className="text-gray-400 text-sm mt-4">
-                Pulse OF Knowledge -{" "}
-                {dir === "rtl"
-                  ? "بوابتك للتعليم الدولي وفرص المنح الدراسية"
-                  : "Your gateway to international education and scholarship opportunities."}
+                Pulse OF Knowledge - Your gateway to international education and scholarship opportunities.
               </p>
             </div>
 
@@ -189,18 +189,17 @@ export default function Footer() {
               <h4 className="text-lg font-medium mb-4">{t("footer.contact")}</h4>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <Mail className="text-[#D4AF37] me-3 mt-1" size={16} />
+                  <Mail className="text-[#D4AF37] mr-3 mt-1" size={16} />
                   <span className="text-gray-400">pulseofknowledge@gmail.com</span>
                 </div>
                 <div className="flex items-start">
-                  <Phone className="text-[#D4AF37] me-3 mt-1" size={16} />
+                  <Phone className="text-[#D4AF37] mr-3 mt-1" size={16} />
                   <div className="text-gray-400">
                     <div>+212 637 887 204</div>
-                    <div>+90 548 826 1105</div>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <MapPin className="text-[#D4AF37] me-3 mt-1" size={16} />
+                  <MapPin className="text-[#D4AF37] mr-3 mt-1" size={16} />
                   <span className="text-gray-400">inzagane - Agadir, Morocco</span>
                 </div>
                 <div className="flex items-center space-x-4 mt-4">

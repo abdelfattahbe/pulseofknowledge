@@ -51,8 +51,7 @@ export default function ContactPage() {
                   <Phone className="text-[#D4AF37] mr-4 mt-1" size={20} />
                   <div>
                     <h3 className="text-gray-800 font-medium mb-1">Call Us</h3>
-                    <p className="text-gray-700">+90 123 456 7890</p>
-                    <p className="text-gray-700">+86 123 456 7890</p>
+                    <p className="text-gray-700">+212 637 887 204</p>
                   </div>
                 </div>
 
