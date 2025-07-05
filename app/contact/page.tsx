@@ -42,8 +42,8 @@ export default function ContactPage() {
                   <Mail className="text-[#D4AF37] mr-4 mt-1" size={20} />
                   <div>
                     <h3 className="text-gray-800 font-medium mb-1">Email Us</h3>
+                    <p className="text-gray-700">abdelfattahbentamdia@gmail.com</p>
                     <p className="text-gray-700">info@pulseofknowledge.com</p>
-                    <p className="text-gray-700">admissions@pulseofknowledge.com</p>
                   </div>
                 </div>
 

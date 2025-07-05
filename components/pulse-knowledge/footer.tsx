@@ -21,8 +21,8 @@ export default function Footer() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would handle the form submission
-    console.log("Form submitted:", formData)
+    // Here you would handle the form submission and send to abdelfattahbentamdia@gmail.com
+    console.log("Registration form submitted for abdelfattahbentamdia@gmail.com:", formData)
     setSubmitted(true)
     // Reset form after 3 seconds
     setTimeout(() => {
@@ -190,7 +190,7 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-start">
                   <Mail className="text-[#D4AF37] mr-3 mt-1" size={16} />
-                  <span className="text-gray-400">pulseofknowledge@gmail.com</span>
+                  <span className="text-gray-400">abdelfattahbentamdia@gmail.com</span>
                 </div>
                 <div className="flex items-start">
                   <Phone className="text-[#D4AF37] mr-3 mt-1" size={16} />

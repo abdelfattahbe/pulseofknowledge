@@ -142,7 +142,7 @@ export async function submitScholarshipApplication(data: ScholarshipApplicationD
 
     // In a real application, you would use a service like Resend, SendGrid, or Nodemailer
     // For now, we'll simulate the email sending
-    console.log("Scholarship application received:", {
+    console.log("Scholarship application received for abdelfattahbentamdia@gmail.com:", {
       applicant: `${data.firstName} ${data.lastName}`,
       email: data.email,
       destination: data.preferredDestination,
@@ -154,7 +154,7 @@ export async function submitScholarshipApplication(data: ScholarshipApplicationD
     // Example with a hypothetical email service:
     /*
     await sendEmail({
-      to: 'pulseofknowledge@gmail.com',
+      to: 'abdelfattahbentamdia@gmail.com',
       subject: `New Scholarship Application - ${data.firstName} ${data.lastName}`,
       html: emailContent
     })

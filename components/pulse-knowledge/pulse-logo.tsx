@@ -72,8 +72,9 @@ export default function PulseLogo({ className = "" }: { className?: string }) {
           }}
           className="relative"
         >
+          {/* TODO: replace placeholder with “/images/pulse-logo.png” when the file exists */}
           <Image
-            src="/images/pulse-logo.png"
+            src="/placeholder.svg?height=100&width=100"
             alt="Pulse OF Knowledge Logo"
             width={50}
             height={50}

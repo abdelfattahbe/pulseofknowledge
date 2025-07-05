@@ -38,13 +38,17 @@ function Logo3DModel() {
     }
   })
 
+  // Temporary fall-back texture until /images/pulse-logo.png is available.
+  // Replace the URL below with '/images/pulse-logo.png' once the asset is added.
+  const logoTexture = useTexture("/placeholder.svg?height=512&width=512")
+
   return (
     <group ref={groupRef} position={[0, 0, 0]}>
       {/* 3D Plane with logo texture */}
       <mesh ref={logoRef} position={[0, 0.5, 0]}>
         <planeGeometry args={[3, 3]} />
         <meshStandardMaterial
-          map={useTexture("/images/pulse-logo.png")}
+          map={logoTexture}
           transparent={true}
           alphaTest={0.1}
           emissive="#00D4D4"
